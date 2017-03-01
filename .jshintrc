@@ -1,0 +1,24 @@
+{
+    "evil": true,
+    "regexdash": true,
+    "browser": true,
+    "wsh": true,
+    "trailing": true,
+    "multistr": true,
+    "sub": true,
+    "loopfunc": true,
+    "expr": true,
+    "jquery": true,
+    "newcap": false,
+    "plusplus": false,
+    "curly": true,
+    "eqeqeq": true,
+    "eqnull": true,
+    "shadow": true,
+    "esversion": 6,
+    "node":true,
+    "globals": {
+        "define": true,
+        "console": true
+    }
+}

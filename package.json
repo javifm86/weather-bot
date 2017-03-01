@@ -1,0 +1,13 @@
+{
+  "name": "weather-bot",
+  "version": "1.0.0",
+  "description": "Simple telegram weather bot with NodeJS. ",
+  "main": "index.js",
+  "author": "javifm86",
+  "dependencies": {
+    "cron": "^1.2.1",
+    "moment": "^2.17.1",
+    "sqlite3": "^3.1.8",
+    "telebot": "^1.0.7"
+  }
+}
