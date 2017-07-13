@@ -69,8 +69,8 @@ const initBot = function() {
 
         // Bot sends welcome message to user and custom keyboard is showed
         let success = bot.sendMessage( msg.from.id, welcome, {
-            parse: 'html',
-            markup: getMainKeyboard( msg.from.id )
+            parseMode: 'html',
+            replyMarkup: getMainKeyboard( msg.from.id )
         } );
 
     } );
@@ -161,7 +161,7 @@ const initBot = function() {
     } );
 
     // Once declared events for bot, connect telegram bot
-    bot.connect();
+    bot.start();
 
 };
 
@@ -197,7 +197,7 @@ const getMainKeyboard = function( chatId ) {
     // Retrieve current weather is always showed
     markup.keyboard.push( [ str.current ] );
 
-    return JSON.stringify( markup );
+    return markup;
 
 };
 
@@ -211,8 +211,8 @@ const getMainKeyboard = function( chatId ) {
 const alertUser = function( chatId, message ) {
 
     bot.sendMessage( chatId, message, {
-        parse: 'html',
-        markup: getMainKeyboard( chatId )
+        parseMode: 'html',
+        replyMarkup: getMainKeyboard( chatId )
     } );
 
 };
@@ -230,7 +230,7 @@ const subscriptionStep = function( step, chatId ) {
     let msg = null;
     let markup = null;
     let defaultParams = {
-        parse: 'html'
+        parseMode: 'html'
     };
 
     switch ( step ) {
@@ -257,7 +257,7 @@ const subscriptionStep = function( step, chatId ) {
 
     // Formatting markup
     if ( markup != null ) {
-        defaultParams.markup = JSON.stringify( markup );
+        defaultParams.markup = markup;
     }
 
     // Send message to the user
@@ -433,8 +433,8 @@ const sendWeather = function( weatherAlert ) {
 const sendToTelegram = function( chatId, msg ) {
 
     let success = bot.sendMessage( chatId, msg, {
-        parse: 'html',
-        markup: getMainKeyboard( chatId )
+        parseMode: 'html',
+        replyMarkup: getMainKeyboard( chatId )
     } );
 
     success.catch( ( data ) => {
@@ -523,8 +523,8 @@ const showSubscription = function( msg, reply, next ) {
 const showCurrentWeather = function( msg, reply, next ) {
 
     bot.sendMessage( msg.from.id, str.requestLocation, {
-        parse: 'html',
-        markup: JSON.stringify( config.KEYBOARD.LOCATION )
+        parseMode: 'html',
+        replyMarkup: config.KEYBOARD.LOCATION
     } );
 
 };
